@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: {case_sensitive: false}
+  #has_secure_password includes a seperate presence validation on object creation.
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   #Return the hash digest of the goven string.
   def User.digest(string)
