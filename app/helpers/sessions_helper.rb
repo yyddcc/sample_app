@@ -2,7 +2,7 @@ module SessionsHelper
 	
 	# logs in the given user
 	def log_in(user)
-		session[:user_id] = user.id
+		session[:user_id] = user.id # why use id instead of email?
 	end
 
 	# remember a user in a persistent session.
@@ -24,7 +24,7 @@ module SessionsHelper
 	  elsif (user_id = cookies.signed[:user_id]) #if persistent session of user id exists.
 	  	user = User.find_by(id: user_id)
 	  	if user && user.authenticated?(cookies[:remember_token]) # if the remember token is matched with remember digest in model
-	  	  log_in user
+	  	  log_in user # why log in user? since user was logged in when session was created
 	  	  @current_user = user
 	  	end
 	  end
