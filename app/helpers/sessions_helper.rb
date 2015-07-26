@@ -23,7 +23,7 @@ module SessionsHelper
 		@current_user ||= User.find_by(id: session[:user_id])
 	  elsif (user_id = cookies.signed[:user_id]) #if persistent session of user id exists.
 	  	user = User.find_by(id: user_id)
-	  	if user && user.authenticated?(cookies[:remember_token]) # if the remember token is matched with remember digest in model
+	  	if user && user.authenticated?(:remember, cookies[:remember_token]) # if the remember token is matched with remember digest in model
 	  	  log_in user # why log in user? since user was logged in when session was created
 	  	  @current_user = user
 	  	end
