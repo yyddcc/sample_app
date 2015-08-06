@@ -1,0 +1,7 @@
+<!-- Sends a POST request to the Relationships controller to create a relationship -->
+<%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+  <!-- It needs to send the followed_id to the controller through hidden_field_tag -->
+  <!-- which generate <input id="followed_id" name="followed_id" type="hidden" value="3" /> -->
+  <div><%= hidden_field_tag :followed_id, @user.id %></div>
+  <%= f.submit "Follow", class: "btn btn-primary" %>
+<% end %>
