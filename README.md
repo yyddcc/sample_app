@@ -1,6 +1,8 @@
-# Ruby on Rails Tutorial: sample application
+https://mighty-wildwood-8957.herokuapp.com/
 
-This is the sample application for the
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/).
+This is a Twitter-like Rails application with the features of:
+1. Authentication and authorization.
+2. Account activation and password reset.
+3. Administration account with privilage of deleting other users.
+4. Micropost and feed wall.
+5. Follow and unfollow other users.
